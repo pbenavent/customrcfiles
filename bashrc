@@ -20,4 +20,9 @@ export L_YELLOW="\[\e[01;33m\]"
 export L_WHITE="\[\e[01;37m\]"
 export NORMAL="\[\e[00m\]"
 
-export PS1="${L_CYAN}\u@\H:${GREEN}[\w]\$ ${NORMAL}"
+if [ `id -u` -eq 0 ]
+        then
+                export PS1="${RED}\u${NORMAL}@\H:${L_YELLOW}[\w]\$ ${NORMAL}"
+        else
+                export PS1="${L_CYAN}\u@\H:${GREEN}[\w]\$ ${NORMAL}"
+fi
